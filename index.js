@@ -31,7 +31,7 @@ const convert = require('./src/convert');
 
   const cue = convert(json);
 
-  await fs.writeFile(cuePath, cue, { flag: 'wx' });
+  await fs.writeFile(cuePath, "\ufeff" + cue, { encoding: 'utf8', flag: 'wx' });
 
   console.log(`Successfully saved CUE at: ${cuePath}`);
 })();
